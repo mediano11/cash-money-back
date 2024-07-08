@@ -13,4 +13,4 @@ class Settings(BaseSettings):
 
 settings = Settings()
 
-ALLOWED_HOSTS = settings.ALLOWED_HOSTS.split(",")
+ALLOWED_HOSTS = [host.strip() for host in settings.ALLOWED_HOSTS.split(",")]

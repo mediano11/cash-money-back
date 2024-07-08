@@ -56,10 +56,10 @@ async def auth(*, db: Session = Depends(get_db), request: Request):
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail="An error occurred while create category",
             )
-    return RedirectResponse(url="https://" + settings.DOMAIN_NAME)
+    return RedirectResponse(url="http://" + settings.DOMAIN_NAME)
 
 
 @router.get("/logout")
 async def logout(request: Request):
     request.session.pop("user", None)
-    return RedirectResponse(url="https://" + settings.DOMAIN_NAME)
+    return RedirectResponse(url="http://" + settings.DOMAIN_NAME)
